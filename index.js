@@ -1,13 +1,16 @@
 const express = require('express'); //for getting the express package
-const path = require('path');
+// const path = require('path');
 const port = 8000; //port setup
 
 const app = express();
 
-app.set('view engine','ejs'); // creates a property view engine and gives a value ejs.
-app.set('views',path.join(__dirname,'views')); // will look for folder views inside __dirname
+// use express router
+app.use('/', require('./routes/index'));
 
-app.use(express.static('assets')); //static files provide functionality to your page, epress.static() is a inbuild function
+// app.set('view engine','ejs'); // creates a property view engine and gives a value ejs.
+// app.set('views',path.join(__dirname,'views')); // will look for folder views inside __dirname
+
+// app.use(express.static('assets')); //static files provide functionality to your page, epress.static() is a inbuild function
 
 app.get('/',function(request,response){
     return response.render('home',
