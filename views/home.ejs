@@ -3,10 +3,110 @@
         <title>
             <%= title %>
         </title>
+
+        <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
         <link rel="stylesheet" href="/css/home.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
     <body>
-        <p>jii</p>
-        <script scr="/js/home.js"></script>
+
+        <h1>TODO App</h1>
+
+        <hr>
+
+
+        <!-- The below form is for getting the information regarding the new task of the user -->
+
+
+        <form action="/create-task" method="POST" id="create">
+
+            <div class="blocks">
+                <label for="description" class= headings>Description</label><br>
+                <input type="text" name="description" placeholder="What do you need to do" required>
+            </div>
+
+            <div class="for-two">
+
+                <div class="blocks the-width" style="border-right: 1px solid gray;">
+
+                    <label for="category" class="headings">Category</label><br>
+                    <select name="category" required>
+                        <option value="" disabled selected>Choose the category</option>
+                        <option value="personal" >Personal</option>
+                        <option value="work">Work</option>
+                        <option value="school">School</option>
+                        <option value="college">College</option>
+                        <option value="home">Home</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                </div>
+
+                <div class="blocks the-width">
+                    <label for="date" class="headings">Due date</label><br> 
+                    <input type="date" name="date" >
+                </div>
+
+            </div>
+        
+            <div class="the-buttons" >
+                <button id="color-black" type="submit">
+                    <i class="fas fa-plus"></i>
+                        Add task
+                 </button>
+            </div>
+
+        </form>
+
+        <!-- The below form is for deleting the completed tasks -->
+
+        <form action="/delete-task" method="POST">
+            <div class="the-buttons" id="button2">
+                <button id="color-red" type="submit">
+                    <i class="fas fa-trash-alt"></i>
+                    Delete tasks
+                </button>
+            </div>
+        </form>
+
+        <!-- The ejs begins, it's for showing the tasks to the user on the browser -->
+
+        <% for(let i of todo_list){%>
+
+            <div class="taskbox">
+                <input type="checkbox" class="checkbox" name="checkbox" id="<%= i.id%>">
+
+                <div class="for-align">
+
+                   <div class="tasks">
+                    <%= i.description %>
+                    </div> 
+
+                         <i class="far fa-calendar-alt"></i>&nbsp&nbsp
+
+                            <% if(i.date != null){ %>
+                                    <%= i.date.toLocaleString("default", { month: "short" }) %> <%= i.date.getDate() %> <span>,</span> <%= i.date.getFullYear() %>
+                            <% }else{ %>
+                                    <span>No Deadline</span>
+                            <% } %>
+                    </div>
+                
+                <div class="category">
+                    <p><%= i.category %></p>
+                </div>
+
+            </div>
+
+       <% } %>
+    
+       <script src="/js/home.js"></script>
     </body>
 </html>
+
+

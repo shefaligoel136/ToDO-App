@@ -1,3 +1,140 @@
 body{
-    color: brown;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1{
+    color:grey;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
+
+.blocks{
+    height:80px;
+}
+
+.blocks:hover{
+    box-shadow: 2px 2px grey;
+}
+
+.headings{
+    margin-left: 10px;
+    color: gray;
+    margin-top:5;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.for-two{
+    display: flex;
+    border: 1px solid gray;
+    border-width: 1px 0px;
+}
+
+.the-width{
+    width: 50%;
+}
+
+.blocks input,select{
+    border: none;
+    margin-left: 10px;
+    width: 50%;
+    font-size: medium;
+    outline: none;
+    padding-top: 13px;
+}
+
+button{
+    text-align: center;
+    height:50px;
+    width:140px;
+    text-transform: uppercase;
+}
+
+.the-buttons{
+   height: 130px;
+}
+
+#button2{
+    margin-top: -146px;
+    margin-left:265px;
+}
+
+.the-buttons button{
+    position: relative;
+    left: 40%;
+    top:30%;
+    outline: none;
+    color: white;
+    border: none;
+}
+button i{
+    color: white;
+    float: left;
+}
+#color-black{
+    background-color: black;
+}
+
+#color-red{
+    background-color: red;
+}
+
+#color-black:hover, #color-red:hover{
+    opacity: 0.9;
+    box-shadow: 2px 2px grey;
+}
+
+.taskBox{
+    height:100px;
+    border:1px solid gray;
+    border-width: 1px 0px;
+    border-bottom: 0px;
+}
+
+.checkbox{
+    height:20px;
+    width:20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    float:left;
+    cursor: pointer;
+    
+}
+
+.tasks{
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.for-align{
+    margin-left: 100px;
+    color: gray;
+}
+
+.category{
+    margin-left: 90%;
+    margin-top: -47px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    height:50px;
+    width:125px;
+    border:1px solid white;
+    height:50px;
+    width:125px;
+    background-color: brown;
+    border-radius: 30px;
+    justify-content: center;
+    display: flex;
+}
+
+
+
+
+label{
+    top: 10px;
+    position: relative;
+    font-size: 14px;
 }
