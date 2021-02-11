@@ -28,7 +28,7 @@
 
             <div class="blocks">
                 <label for="description" class= headings>Description</label><br>
-                <input type="text" name="description" placeholder="What do you need to do" required>
+                <input type="text" name="description" placeholder="What do you need to do ?" required>
             </div>
 
             <div class="for-two">
@@ -75,21 +75,32 @@
             </div>
         </form>
 
+        <!-- this div contains the sort button, this will help in increasing the user experience of the application -->
+
+        <div class="the-buttons" id="button3">
+            <button name="sorted" class="sorted" id="color-blue" >SORT</button>
+            <div id="sort-type">
+                <a href="/">Most Recently Added</a>
+                <a href="/sort-near">Nearest Deadline</a>
+                <a href="/sort-far">Farthest Deadline</a>
+            </div>
+        </div>
+
         <!-- The ejs begins, it's for showing the tasks to the user on the browser -->
 
         <% for(let i of todo_list){%>
 
             <div class="taskbox">
                 <input type="checkbox" class="checkbox" name="checkbox" id="<%= i.id%>">
-
+                
                 <div class="for-align">
-
+                    <!-- Shows the task name -->
                    <div class="tasks">
                     <%= i.description %>
                     </div> 
 
                          <i class="far fa-calendar-alt"></i>&nbsp&nbsp
-
+                            <!-- shows the date till which the task is to be completed -->
                             <% if(i.date != null){ %>
                                     <%= i.date.toLocaleString("default", { month: "short" }) %> <%= i.date.getDate() %> <span>,</span> <%= i.date.getFullYear() %>
                             <% }else{ %>
@@ -97,13 +108,16 @@
                             <% } %>
                     </div>
                 
-                <div class="category">
+                    <!-- shows the category of the task -->
+                <div class="category <%= i.category %>">
                     <p><%= i.category %></p>
                 </div>
 
             </div>
 
        <% } %>
+       
+      
     
        <script src="/js/home.js"></script>
     </body>
